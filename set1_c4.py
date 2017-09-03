@@ -32,9 +32,11 @@ lines = text_file.readlines()
 realScore = 0
 realNeedle = ""
 index = 0
+index2 = 0
 
 for x in range(len(lines)):
 	highScore = 0 
+	index2Temp = 0
 	line = lines[x]
 	bytes1 = line.encode()
 	b1Decode = codecs.decode(bytes1.strip(), "hex")
@@ -50,6 +52,7 @@ for x in range(len(lines)):
 			if score > highScore:
 				needle = english.decode("ascii")
 				highScore = score
+				index2Temp = i 
 		except UnicodeDecodeError:
 			break
 
@@ -57,9 +60,11 @@ for x in range(len(lines)):
 		realScore = highScore
 		realNeedle = needle
 		index = x
+		index2 = index2Temp
 
 print(realScore)
 print(realNeedle)
 print(index)
+print(string.printable[index2])
 print(lines[index])
 
