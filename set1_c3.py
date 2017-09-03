@@ -28,6 +28,7 @@ bytes1 = b"1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
 b1Decode = codecs.decode(bytes1, "hex")
 
 needle = ""
+index = 0
 
 for i in range(len(string.printable)):
 	b2Decode = string.printable[i].encode('ascii')
@@ -36,7 +37,9 @@ for i in range(len(string.printable)):
 	if score > highScore:
 		needle = english.decode("ascii")
 		highScore = score
+		index = i
 
 print(needle)
 print(highScore)
+print(string.printable[index])
 
